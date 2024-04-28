@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PlayerDataAPI Documentation</title>
+        <link rel="stylesheet" href="style.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <h1>LU7 Creative API Documentation:</h1>
+
+        <script>
+            function toggleResponse(id) {
+                var response = document.getElementById(id);
+                if (response.style.display === "none") {
+                    response.style.display = "block";
+                } else {
+                    response.style.display = "none";
+                }
+            }
+        </script>
+
+        <div class="endpoint">
+            <h2>/</h2>
+            <p>Returns a HTML page listing all online players with their name, UUID, health, and location.</p>
+            <div class="example">
+                <p>Example:</p>
+                <pre><code>GET https://mcapi.lu7.io</code></pre>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2>/player/:name</h2>
+            <p>
+                Returns JSON data about a specific player including their name, UUID, health, max health, food level, experience level, total experience, experience progress, game mode, location, active potion effects, ender chest contents,
+                armor inventory, ender pearl cooldown, and player statistics. Limited data is available for offline players.
+            </p>
+            <div class="example">
+                <p>Example:</p>
+                <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7</code></pre>
+                <button class="toggle-btn" onclick="toggleResponse('response2')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                <pre id="response2" style="display: none;">
+                {
+                    "name": "LuckUnstoppable7",
+                    "online": false,
+                    "uuid": "c80cd63c-3afb-43c7-aa52-06b4e515238a",
+                    "statistics": {
+                      "INTERACT_WITH_LOOM": 0,
+                      "CAULDRON_USED": 8,
+                      "ANIMALS_BRED": 0,
+                      "INTERACT_WITH_BLAST_FURNACE": 0,
+                      "CRAFTING_TABLE_INTERACTION": 5,
+                      "CAKE_SLICES_EATEN": 262,
+                      "DEATHS": 33,
+                      "JUMP": 263028,
+                      "INTERACT_WITH_ANVIL": 17,
+                      "BANNER_CLEANED": 0,
+                      "WALK_ON_WATER_ONE_CM": 415061,
+                      "INTERACT_WITH_STONECUTTER": 1,
+                      "BEACON_INTERACTION": 6,
+                      "SNEAK_TIME": 256732,
+                      "RAID_WIN": 0,
+                      "ENDERCHEST_OPENED": 4,
+                      "PLAY_ONE_MINUTE": 40658698,
+                      "NOTEBLOCK_TUNED": 268,
+                      "SWIM_ONE_CM": 476005,
+                      "INTERACT_WITH_LECTERN": 31,
+                      "ARMOR_CLEANED": 0,
+                      "FLOWER_POTTED": 3,
+                      "DROPPER_INSPECTED": 33,
+                      "RAID_TRIGGER": 0,
+                      "CROUCH_ONE_CM": 436849,
+                      "DISPENSER_INSPECTED": 129,
+                      "STRIDER_ONE_CM": 0,
+                      "DAMAGE_DEALT": 15,
+                      "BELL_RING": 946,
+                      "CLEAN_SHULKER_BOX": 0,
+                      "TIME_SINCE_DEATH": 3977385,
+                      "FLY_ONE_CM": 205737130,
+                      "DAMAGE_ABSORBED": 0,
+                      "AVIATE_ONE_CM": 520888,
+                      "INTERACT_WITH_GRINDSTONE": 1,
+                      "TARGET_HIT": 0,
+                      "FISH_CAUGHT": 0,
+                      "TIME_SINCE_REST": 3977441,
+                      "DAMAGE_DEALT_RESISTED": 0,
+                      "DAMAGE_TAKEN": 86820,
+                      "LEAVE_GAME": 1142,
+                      "FALL_ONE_CM": 14588133,
+                      "INTERACT_WITH_CARTOGRAPHY_TABLE": 1,
+                      "TOTAL_WORLD_TIME": 40658698,
+                      "WALK_UNDER_WATER_ONE_CM": 633925,
+                      "MINECART_ONE_CM": 525331,
+                      "CLIMB_ONE_CM": 111230,
+                      "SPRINT_ONE_CM": 36676177,
+                      "DROP_COUNT": 842,
+                      "INTERACT_WITH_SMITHING_TABLE": 0,
+                      "CAULDRON_FILLED": 18,
+                      "RECORD_PLAYED": 5,
+                      "MOB_KILLS": 4,
+                      "HOPPER_INSPECTED": 27,
+                      "SLEEP_IN_BED": 2,
+                      "HORSE_ONE_CM": 0,
+                      "SHULKER_BOX_OPENED": 48,
+                      "PIG_ONE_CM": 0,
+                      "ITEM_ENCHANTED": 1,
+                      "OPEN_BARREL": 33,
+                      "WALK_ONE_CM": 21674385,
+                      "NOTEBLOCK_PLAYED": 0,
+                      "TALKED_TO_VILLAGER": 0,
+                      "DAMAGE_DEALT_ABSORBED": 0,
+                      "TRADED_WITH_VILLAGER": 0,
+                      "BREWINGSTAND_INTERACTION": 0,
+                      "BOAT_ONE_CM": 78993,
+                      "DAMAGE_RESISTED": 0,
+                      "INTERACT_WITH_SMOKER": 0,
+                      "CHEST_OPENED": 398,
+                      "DAMAGE_BLOCKED_BY_SHIELD": 0,
+                      "FURNACE_INTERACTION": 18,
+                      "INTERACT_WITH_CAMPFIRE": 0,
+                      "TRAPPED_CHEST_TRIGGERED": 49,
+                      "PLAYER_KILLS": 0
+                    }
+                  }
+                </pre>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2>/version</h2>
+            <p>Returns JSON data containing the current API version.</p>
+            <div class="example">
+                <p>Example:</p>
+                <pre><code>GET https://mcapi.lu7.io/version</code></pre>
+                <button class="toggle-btn" onclick="toggleResponse('response3')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                <pre id="response3" style="display: none;">
+                {
+                    "apiVersion": "1.1"
+                }
+                </pre>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2>/onlinePlayers</h2>
+            <p>Returns JSON data listing all online players with their name and UUID.</p>
+            <div class="example">
+                <p>Example:</p>
+                <pre><code>GET https://mcapi.lu7.io/onlinePlayers</code></pre>
+                <button class="toggle-btn" onclick="toggleResponse('response4')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                <pre id="response4" style="display: none;">
+                [
+                {
+                  "name": "LuckUnstoppable7",
+                  "uuid": "c80cd63c-3afb-43c7-aa52-06b4e515238a"
+                },
+                {
+                  "name": "dante_nl",
+                  "uuid": "d3e3b4ac-fbb1-4a84-b7b0-483f0aeba1a8"
+                }
+                ]
+                </pre>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2>/onlinePlayers/count</h2>
+            <p>Returns JSON data with the current count of online players.</p>
+            <div class="example">
+                <p>Example:</p>
+                <pre><code>GET https://mcapi.lu7.io/onlinePlayers/count</code></pre>
+                <button class="toggle-btn" onclick="toggleResponse('response5')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                <pre id="response5" style="display: none;">
+                {
+                    "count": 2
+                }
+                </pre>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2>/player/:name/online</h2>
+            <p>Returns JSON data indicating whether the specified player is online.</p>
+            <div class="example">
+                <p>Example:</p>
+                <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7/online</code></pre>
+                <button class="toggle-btn" onclick="toggleResponse('response6')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                <pre id="response6" style="display: none;">
+                {
+                    "name": "LuckUnstoppable7",
+                    "online": true,
+                    "uuid": "c80cd63c-3afb-43c7-aa52-06b4e515238a"
+                }
+                </pre>
+            </div>
+        </div>
+    </body>
+</html>
