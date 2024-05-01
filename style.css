@@ -47,6 +47,7 @@ pre {
     border-radius: 5px;
     padding: 20px;
     background-color: #fff;
+    word-wrap: break-word;
 }
 
 .example {
@@ -65,4 +66,87 @@ pre {
 
 .toggle-btn:hover {
     background-color: #0056b3;
+}
+
+.navbar {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-logo {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+.navbar-toggle {
+    display: none;
+}
+
+.navbar-toggle-label {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+.container {
+    padding: 20px;
+}
+
+.navbar-links,
+.right-hand-bar {
+    box-sizing: border-box;
+}
+
+@media (max-width: 1460px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        background-color: #007bff;
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    .navbar-toggle-label {
+        display: block;
+    }
+
+    .navbar-toggle:checked ~ .navbar-links {
+        display: flex;
+    }
+}
+
+footer {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+}
+footer p {
+    margin: 0;
 }
