@@ -15,40 +15,67 @@
         />
     </head>
     <body>
-        <h1>LU7 Creative API Documentation:</h1>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a href="#" class="navbar-logo">LU7 Creative API</a>
+            </div>
+            <input type="checkbox" id="navbar-toggle" class="navbar-toggle" />
+            <label for="navbar-toggle" class="navbar-toggle-label"><i class="fas fa-bars"></i></label>
+            <div class="navbar-links">
+                <a href="#overview"><i class="fas fa-home"></i> Overview</a>
+                <a href="#player"><i class="fas fa-user"></i> Player</a>
+                <a href="#version"><i class="fas fa-code-branch"></i> Version</a>
+                <a href="#players-online"><i class="fas fa-users"></i> Players Online</a>
+                <a href="#player-count"><i class="fas fa-chart-bar"></i> Player Count</a>
+                <a href="#check-if-online"><i class="fas fa-search"></i> Check if player online</a>
+                <a href="#player-plots"><i class="fas fa-map-marker-alt"></i> Player Plots</a>
+                <a href="#owned-plots"><i class="fas fa-landmark"></i> Owned Plots</a>
+                <a href="#active-punishments"><i class="fas fa-exclamation-triangle"></i> Active Punishments</a>
+            </div>
+        </nav>
 
-        <script>
-            function toggleResponse(id) {
-                var response = document.getElementById(id);
-                if (response.style.display === "none") {
-                    response.style.display = "block";
-                } else {
-                    response.style.display = "none";
+        <div class="container">
+            <h1>LU7 Creative API Documentation:</h1>
+
+            <script>
+                function toggleResponse(id) {
+                    var response = document.getElementById(id);
+                    if (response.style.display === "none") {
+                        response.style.display = "block";
+                    } else {
+                        response.style.display = "none";
+                    }
                 }
-            }
-        </script>
+            </script>
 
-<div class="endpoint">
-    <h2><i class="fas fa-info-circle"></i> Overview:</h2>
-    <p><i class="fas fa-code-branch"></i> The current API version is 1.3. It was released on Wed 1 May 2024.</p>
-    <p><i class="fas fa-calendar-alt"></i> This documentation page was last updated on Wed 1 May 2024 and supports the latest API version.</p>
-    <p><i class="fas fa-bug"></i> We are not aware about any bugs or issues with the latest version of the API.</p>
-    <p><i class="fas fa-exclamation-triangle"></i> If you make too many requests in a short period of time, the API will respond with <code>{"error":{"code":429,"message":"Rate limit exceeded. Please try again later."}}</code> with a 429 HTTP Status code.</p>
-    <p><i class="fas fa-exclamation-circle"></i> If the requested player has never joined LU7 Creative before, the API will respond with: <code>Player not found.</code> with a 404 HTTP Status code.</p>
-</div>
+            <div class="endpoint">
+                <h2 id="overview"><i class="fas fa-info-circle"></i> Overview:</h2>
+                <p><i class="fas fa-code-branch"></i> The current API version is 1.3. It was released on Wed 1 May 2024.</p>
+                <p><i class="fas fa-calendar-alt"></i> This documentation page was last updated on Wed 1 May 2024 and supports the latest API version.</p>
+                <p><i class="fas fa-bug"></i> We are not aware about any bugs or issues with the latest version of the API.</p>
+                <p>
+                    <i class="fas fa-exclamation-triangle"></i> If you make too many requests in a short period of time, the API will respond with
+                    <code>{"error":{"code":429,"message":"Rate limit exceeded. Please try again later."}}</code> with a 429 HTTP Status code.
+                </p>
+                <p>
+                    <i class="fas fa-exclamation-circle"></i> If the requested player has never joined LU7 Creative before, the API will respond with: <code>{"error":{"code":404,"message":"Player not found."}}</code> with a 404 HTTP Status
+                    code.
+                </p>
+                <p><i class="fas fa-exclamation-circle"></i> If the requested endpoint is invalid, the API will respond with: <code>{"error":{"code":404,"message":"Endpoint not found."}}</code> with a 404 HTTP Status code.</p>
+            </div>
 
-
-        <div class="endpoint">
-            <h2>/player/:name</h2>
-            <p> <i class="fas fa-info-circle"></i>
-                Returns JSON data about a specific player including their name, UUID, health, max health, food level, experience level, total experience, experience progress, game mode, location, active potion effects, ender chest contents,
-                armor inventory, ender pearl cooldown, and player statistics. Limited data is available for offline players.
-            </p>
-            <div class="example">
-                <p>Example:</p>
-                <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7</code></pre>
-                <button class="toggle-btn" onclick="toggleResponse('response2')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
-                <pre id="response2" style="display: none;">
+            <div class="endpoint" id="player">
+                <h2>/player/:name</h2>
+                <p>
+                    <i class="fas fa-info-circle"></i>
+                    Returns JSON data about a specific player including their name, UUID, health, max health, food level, experience level, total experience, experience progress, game mode, location, active potion effects, ender chest
+                    contents, armor inventory, ender pearl cooldown, and player statistics. Limited data is available for offline players.
+                </p>
+                <div class="example">
+                    <p>Example:</p>
+                    <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7</code></pre>
+                    <button class="toggle-btn" onclick="toggleResponse('response2')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                    <pre id="response2" style="display: none;">
                     {
                         "mysteryBoxes": 1,
                         "mysteryDust": 44813,
@@ -142,33 +169,33 @@
                           "PLAYER_KILLS": 0
                         }
                       }
-                </pre>
+                    </pre>
+                </div>
             </div>
-        </div>
 
-        <div class="endpoint">
-            <h2>/version</h2>
-            <p><i class="fas fa-info-circle"></i> Returns JSON data containing the current API version.</p>
-            <div class="example">
-                <p>Example:</p>
-                <pre><code>GET https://mcapi.lu7.io/version</code></pre>
-                <button class="toggle-btn" onclick="toggleResponse('response3')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
-                <pre id="response3" style="display: none;">
+            <div class="endpoint" id="version">
+                <h2>/version</h2>
+                <p><i class="fas fa-info-circle"></i> Returns JSON data containing the current API version.</p>
+                <div class="example">
+                    <p>Example:</p>
+                    <pre><code>GET https://mcapi.lu7.io/version</code></pre>
+                    <button class="toggle-btn" onclick="toggleResponse('response3')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                    <pre id="response3" style="display: none;">
                 {
                     "apiVersion": "1.2"
                 }
-                </pre>
+                    </pre>
+                </div>
             </div>
-        </div>
 
-        <div class="endpoint">
-            <h2>/onlinePlayers</h2>
-            <p><i class="fas fa-info-circle"></i> Returns JSON data listing all online players with their name and UUID.</p>
-            <div class="example">
-                <p>Example:</p>
-                <pre><code>GET https://mcapi.lu7.io/onlinePlayers</code></pre>
-                <button class="toggle-btn" onclick="toggleResponse('response4')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
-                <pre id="response4" style="display: none;">
+            <div class="endpoint" id="players-online">
+                <h2>/onlinePlayers</h2>
+                <p><i class="fas fa-info-circle"></i> Returns JSON data listing all online players with their name and UUID.</p>
+                <div class="example">
+                    <p>Example:</p>
+                    <pre><code>GET https://mcapi.lu7.io/onlinePlayers</code></pre>
+                    <button class="toggle-btn" onclick="toggleResponse('response4')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                    <pre id="response4" style="display: none;">
                 [
                 {
                   "name": "LuckUnstoppable7",
@@ -179,52 +206,52 @@
                   "uuid": "d3e3b4ac-fbb1-4a84-b7b0-483f0aeba1a8"
                 }
                 ]
-                </pre>
+                    </pre>
+                </div>
             </div>
-        </div>
 
-        <div class="endpoint">
-            <h2>/onlinePlayers/count</h2>
-            <p><i class="fas fa-info-circle"></i> Returns JSON data with the current count of online players.</p>
-            <div class="example">
-                <p>Example:</p>
-                <pre><code>GET https://mcapi.lu7.io/onlinePlayers/count</code></pre>
-                <button class="toggle-btn" onclick="toggleResponse('response5')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
-                <pre id="response5" style="display: none;">
+            <div class="endpoint" id="player-count">
+                <h2>/onlinePlayers/count</h2>
+                <p><i class="fas fa-info-circle"></i> Returns JSON data with the current count of online players.</p>
+                <div class="example">
+                    <p>Example:</p>
+                    <pre><code>GET https://mcapi.lu7.io/onlinePlayers/count</code></pre>
+                    <button class="toggle-btn" onclick="toggleResponse('response5')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                    <pre id="response5" style="display: none;">
                 {
                     "count": 2
                 }
-                </pre>
+                    </pre>
+                </div>
             </div>
-        </div>
 
-        <div class="endpoint">
-            <h2>/player/:name/online</h2>
-            <p><i class="fas fa-info-circle"></i> Returns JSON data indicating whether the specified player is online.</p>
-            <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
-            <div class="example">
-                <p>Example:</p>
-                <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7/online</code></pre>
-                <button class="toggle-btn" onclick="toggleResponse('response6')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
-                <pre id="response6" style="display: none;">
+            <div class="endpoint" id="check-if-online">
+                <h2>/player/:name/online</h2>
+                <p><i class="fas fa-info-circle"></i> Returns JSON data indicating whether the specified player is online.</p>
+                <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
+                <div class="example">
+                    <p>Example:</p>
+                    <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7/online</code></pre>
+                    <button class="toggle-btn" onclick="toggleResponse('response6')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                    <pre id="response6" style="display: none;">
                 {
                     "name": "LuckUnstoppable7",
                     "online": true,
                     "uuid": "c80cd63c-3afb-43c7-aa52-06b4e515238a"
                 }
-                </pre>
+                    </pre>
+                </div>
             </div>
-        </div>
 
-        <div class="endpoint">
-            <h2>/player/:name/plots</h2>
-            <p><i class="fas fa-info-circle"></i> Returns JSON data containing plot information for the specified player.</p>
-            <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
-            <div class="example">
-                <p>Example:</p>
-                <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7/plots</code></pre>
-                <button class="toggle-btn" onclick="toggleResponse('response7')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
-                <pre id="response7" style="display: none;">
+            <div class="endpoint" id="player-plots">
+                <h2>/player/:name/plots</h2>
+                <p><i class="fas fa-info-circle"></i> Returns JSON data containing plot information for the specified player.</p>
+                <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
+                <div class="example">
+                    <p>Example:</p>
+                    <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7/plots</code></pre>
+                    <button class="toggle-btn" onclick="toggleResponse('response7')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                    <pre id="response7" style="display: none;">
                     {
                         "plotCount": 2,
                         "uuid": "c80cd63c-3afb-43c7-aa52-06b4e515238a",
@@ -310,18 +337,18 @@
                           }
                         ]
                       }
-                </pre>
+                    </pre>
+                </div>
             </div>
-        </div>
 
-        <div class="endpoint">
-            <h2>/ownedPlots</h2>
-            <p><i class="fas fa-info-circle"></i> Returns JSON data containing basic information for every owned plot.</p>
-            <div class="example">
-                <p>Example:</p>
-                <pre><code>GET https://mcapi.lu7.io/ownedPlots</code></pre>
-                <button class="toggle-btn" onclick="toggleResponse('response8')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
-                <pre id="response8" style="display: none;">
+            <div class="endpoint" id="owned-plots">
+                <h2>/ownedPlots</h2>
+                <p><i class="fas fa-info-circle"></i> Returns JSON data containing basic information for every owned plot.</p>
+                <div class="example">
+                    <p>Example:</p>
+                    <pre><code>GET https://mcapi.lu7.io/ownedPlots</code></pre>
+                    <button class="toggle-btn" onclick="toggleResponse('response8')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                    <pre id="response8" style="display: none;">
                     {
                         "ownedPlots": [
                           {
@@ -729,120 +756,22 @@
                         ],
                         "ownedPlotCount": 67
                       }
-                </pre>
+
+                    </pre>
+                </div>
             </div>
-        </div>
 
-        <div class="endpoint">
-            <h2>/player/:name/plots</h2>
-            <p><i class="fas fa-info-circle"></i> Returns JSON data containing plot information for the specified player.</p>
-            <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
-            <div class="example">
-                <p>Example:</p>
-                <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7/plots</code></pre>
-                <button class="toggle-btn" onclick="toggleResponse('response9')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
-                <pre id="response9" style="display: none;">
-                  {
-                      "plotCount": 2,
-                      "uuid": "c80cd63c-3afb-43c7-aa52-06b4e515238a",
-                      "player": "LuckUnstoppable7",
-                      "plots": [
-                        {
-                          "owner": "LuckUnstoppable7",
-                          "world": "creative",
-                          "id": "0;0",
-                          "trustedMembers": [
-                            {
-                              "name": "SubnetSeeker",
-                              "uuid": "4ea7ad85-260c-4079-a400-d90912f3598d"
-                            },
-                            {
-                              "name": "Hanzy_225",
-                              "uuid": "3c93571c-88e6-4bf9-ac80-9591ecbc8fbc"
-                            },
-                            {
-                              "name": "AppleRedWarrior",
-                              "uuid": "f7e5385f-e53f-4329-9124-cbf4999644a8"
-                            },
-                            {
-                              "name": "Markie2008",
-                              "uuid": "6033bccf-8228-43ae-8efa-8de3344a409b"
-                            },
-                            {
-                              "name": "dante_nl",
-                              "uuid": "d3e3b4ac-fbb1-4a84-b7b0-483f0aeba1a8"
-                            },
-                            {
-                              "name": "rspkfr",
-                              "uuid": "994ffee5-85cc-4cd9-9dfe-f25f20c9f450"
-                            },
-                            {
-                              "name": "aug_david",
-                              "uuid": "927507b7-72b1-43eb-9407-082a6e2ef351"
-                            },
-                            {
-                              "name": "sillysunoo",
-                              "uuid": "86d0f816-d44a-468a-a481-46ea04658945"
-                            }
-                          ]
-                        },
-                        {
-                          "owner": "LuckUnstoppable7",
-                          "world": "creative",
-                          "id": "0;1",
-                          "trustedMembers": [
-                            {
-                              "name": "SubnetSeeker",
-                              "uuid": "4ea7ad85-260c-4079-a400-d90912f3598d"
-                            },
-                            {
-                              "name": "Hanzy_225",
-                              "uuid": "3c93571c-88e6-4bf9-ac80-9591ecbc8fbc"
-                            },
-                            {
-                              "name": "AppleRedWarrior",
-                              "uuid": "f7e5385f-e53f-4329-9124-cbf4999644a8"
-                            },
-                            {
-                              "name": "Markie2008",
-                              "uuid": "6033bccf-8228-43ae-8efa-8de3344a409b"
-                            },
-                            {
-                              "name": "dante_nl",
-                              "uuid": "d3e3b4ac-fbb1-4a84-b7b0-483f0aeba1a8"
-                            },
-                            {
-                              "name": "rspkfr",
-                              "uuid": "994ffee5-85cc-4cd9-9dfe-f25f20c9f450"
-                            },
-                            {
-                              "name": "aug_david",
-                              "uuid": "927507b7-72b1-43eb-9407-082a6e2ef351"
-                            },
-                            {
-                              "name": "sillysunoo",
-                              "uuid": "86d0f816-d44a-468a-a481-46ea04658945"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-
-                </pre>
-            </div>
-        </div>
-
-        <div class="endpoint">
-            <h2>/player/:name/activePunishments</h2>
-            <p><i class="fas fa-info-circle"></i> Returns JSON data containing information about any active punishments the player has.</p>
-            <p>If the requested player does not have any active punishments, the API will respond with: "Player has no active punishments." with a 200 Ok HTTP Status code.</p>
-            <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
-            <p>A 'dateEnd' value of '0' means the punishment never expires and is permanent.</p>
-            <div class="example">
-                <p>Example:</p>
-                <pre><code>GET https://mcapi.lu7.io/player/SubnetSeeker/activePunishments</code></pre>
-                <button class="toggle-btn" onclick="toggleResponse('response10')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
-                <pre id="response10" style="display: none;">
+            <div class="endpoint" id="active-punishments">
+                <h2>/player/:name/activePunishments</h2>
+                <p><i class="fas fa-info-circle"></i> Returns JSON data containing information about any active punishments the player has.</p>
+                <p>If the requested player does not have any active punishments, the API will respond with: "Player has no active punishments." with a 200 Ok HTTP Status code.</p>
+                <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
+                <p>A 'dateEnd' value of '0' means the punishment never expires and is permanent.</p>
+                <div class="example">
+                    <p>Example:</p>
+                    <pre><code>GET https://mcapi.lu7.io/player/SubnetSeeker/activePunishments</code></pre>
+                    <button class="toggle-btn" onclick="toggleResponse('response10')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                    <pre id="response10" style="display: none;">
                 [
                 {
                   "isPermanent": false,
@@ -871,9 +800,15 @@
                   "uuid": "4ea7ad85-260c-4079-a400-d90912f3598d"
                 }
               ] 
-
-                </pre>
+                    </pre>
+                </div>
             </div>
+            <footer class="footer">
+                <div class="container">
+                    <p>&copy; 2024 LU7 Creative. All rights reserved.</p>
+                    <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
