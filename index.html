@@ -837,6 +837,7 @@
             <p>Returns JSON data containing information about any active punishments the player has.</p>
             <p>If the requested player does not have any active punishments, the API will respond with: "Player has no active punishments." with a 200 Ok HTTP Status code.</p>
             <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
+            <p>A 'dateEnd' value of '0' means the punishment never expires and is permanent.</p>
             <div class="example">
                 <p>Example:</p>
                 <pre><code>GET https://mcapi.lu7.io/player/SubnetSeeker/activePunishments</code></pre>
