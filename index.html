@@ -200,6 +200,7 @@
         <div class="endpoint">
             <h2>/player/:name/online</h2>
             <p>Returns JSON data indicating whether the specified player is online.</p>
+            <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
             <div class="example">
                 <p>Example:</p>
                 <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7/online</code></pre>
@@ -217,6 +218,7 @@
         <div class="endpoint">
             <h2>/player/:name/plots</h2>
             <p>Returns JSON data containing plot information for the specified player.</p>
+            <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
             <div class="example">
                 <p>Example:</p>
                 <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7/plots</code></pre>
@@ -314,6 +316,7 @@
         <div class="endpoint">
             <h2>/ownedPlots</h2>
             <p>Returns JSON data containing basic information for every owned plot.</p>
+            <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
             <div class="example">
                 <p>Example:</p>
                 <pre><code>GET https://mcapi.lu7.io/ownedPlots</code></pre>
@@ -726,6 +729,148 @@
                         ],
                         "ownedPlotCount": 67
                       }
+                </pre>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2>/player/:name/plots</h2>
+            <p>Returns JSON data containing plot information for the specified player.</p>
+            <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
+            <div class="example">
+                <p>Example:</p>
+                <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7/plots</code></pre>
+                <button class="toggle-btn" onclick="toggleResponse('response7')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                <pre id="response7" style="display: none;">
+                  {
+                      "plotCount": 2,
+                      "uuid": "c80cd63c-3afb-43c7-aa52-06b4e515238a",
+                      "player": "LuckUnstoppable7",
+                      "plots": [
+                        {
+                          "owner": "LuckUnstoppable7",
+                          "world": "creative",
+                          "id": "0;0",
+                          "trustedMembers": [
+                            {
+                              "name": "SubnetSeeker",
+                              "uuid": "4ea7ad85-260c-4079-a400-d90912f3598d"
+                            },
+                            {
+                              "name": "Hanzy_225",
+                              "uuid": "3c93571c-88e6-4bf9-ac80-9591ecbc8fbc"
+                            },
+                            {
+                              "name": "AppleRedWarrior",
+                              "uuid": "f7e5385f-e53f-4329-9124-cbf4999644a8"
+                            },
+                            {
+                              "name": "Markie2008",
+                              "uuid": "6033bccf-8228-43ae-8efa-8de3344a409b"
+                            },
+                            {
+                              "name": "dante_nl",
+                              "uuid": "d3e3b4ac-fbb1-4a84-b7b0-483f0aeba1a8"
+                            },
+                            {
+                              "name": "rspkfr",
+                              "uuid": "994ffee5-85cc-4cd9-9dfe-f25f20c9f450"
+                            },
+                            {
+                              "name": "aug_david",
+                              "uuid": "927507b7-72b1-43eb-9407-082a6e2ef351"
+                            },
+                            {
+                              "name": "sillysunoo",
+                              "uuid": "86d0f816-d44a-468a-a481-46ea04658945"
+                            }
+                          ]
+                        },
+                        {
+                          "owner": "LuckUnstoppable7",
+                          "world": "creative",
+                          "id": "0;1",
+                          "trustedMembers": [
+                            {
+                              "name": "SubnetSeeker",
+                              "uuid": "4ea7ad85-260c-4079-a400-d90912f3598d"
+                            },
+                            {
+                              "name": "Hanzy_225",
+                              "uuid": "3c93571c-88e6-4bf9-ac80-9591ecbc8fbc"
+                            },
+                            {
+                              "name": "AppleRedWarrior",
+                              "uuid": "f7e5385f-e53f-4329-9124-cbf4999644a8"
+                            },
+                            {
+                              "name": "Markie2008",
+                              "uuid": "6033bccf-8228-43ae-8efa-8de3344a409b"
+                            },
+                            {
+                              "name": "dante_nl",
+                              "uuid": "d3e3b4ac-fbb1-4a84-b7b0-483f0aeba1a8"
+                            },
+                            {
+                              "name": "rspkfr",
+                              "uuid": "994ffee5-85cc-4cd9-9dfe-f25f20c9f450"
+                            },
+                            {
+                              "name": "aug_david",
+                              "uuid": "927507b7-72b1-43eb-9407-082a6e2ef351"
+                            },
+                            {
+                              "name": "sillysunoo",
+                              "uuid": "86d0f816-d44a-468a-a481-46ea04658945"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+
+                </pre>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2>/player/:name/activePunishments</h2>
+            <p>Returns JSON data containing information about any active punishments the player has.</p>
+            <p>If the requested player does not have any active punishments, the API will respond with: "Player has no active punishments." with a 200 Ok HTTP Status code.</p>
+            <p>If the requested player has never joined LU7 Creative before, the API will respond with: "Player not found." with a 404 HTTP Status code.</p>
+            <div class="example">
+                <p>Example:</p>
+                <pre><code>GET https://mcapi.lu7.io/player/SubnetSeeker/activePunishments</code></pre>
+                <button class="toggle-btn" onclick="toggleResponse('response9')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
+                <pre id="response9" style="display: none;">
+                [
+                {
+                  "isPermanent": false,
+                  "executorUUID": "CONSOLE",
+                  "reason": "Mute Evasion",
+                  "executorName": "Console",
+                  "playerName": "SubnetSeeker",
+                  "dateStart": 1714580894572,
+                  "active": true,
+                  "dateEnd": 1715185694572,
+                  "id": 109,
+                  "type": "Ban",
+                  "uuid": "4ea7ad85-260c-4079-a400-d90912f3598d"
+                },
+                {
+                  "isPermanent": false,
+                  "executorUUID": "CONSOLE",
+                  "reason": "Swearing",
+                  "executorName": "Console",
+                  "playerName": "SubnetSeeker",
+                  "dateStart": 1714580875172,
+                  "active": true,
+                  "dateEnd": 1714667275172,
+                  "id": 1,
+                  "type": "Mute",
+                  "uuid": "4ea7ad85-260c-4079-a400-d90912f3598d"
+                }
+              ] 
+
                 </pre>
             </div>
         </div>
