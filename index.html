@@ -54,8 +54,8 @@
 
             <div class="endpoint">
                 <h2 id="overview"><i class="fas fa-info-circle"></i> Overview:</h2>
-                <p><i class="fas fa-code-branch"></i> The current API version is 1.3. It was released on Wed 1 May 2024.</p>
-                <p><i class="fas fa-calendar-alt"></i> This documentation page was last updated on Wed 1 May 2024 and supports the latest API version.</p>
+                <p><i class="fas fa-code-branch"></i> The current API version is 1.5. It was released on Tue 7 May 2024.</p>
+                <p><i class="fas fa-calendar-alt"></i> This documentation page was last updated on Tue 7 May 2024 and supports the latest API version.</p>
                 <p><i class="fas fa-bug"></i> We are not aware about any bugs or issues with the latest version of the API.</p>
                 <p>
                     <i class="fas fa-exclamation-triangle"></i> If you make too many requests in a short period of time, the API will respond with
@@ -80,9 +80,11 @@
                     <pre><code>GET https://mcapi.lu7.io/player/LuckUnstoppable7</code></pre>
                     <button class="toggle-btn" onclick="toggleResponse('response2')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
                     <pre id="response2" style="display: none;">
-                    {
+                      {
+                        "lastOnlineTimestamp": 1715095431510,
                         "mysteryBoxes": 1,
-                        "mysteryDust": 44813,
+                        "mysteryDust": 45353,
+                        "firstJoinedTimestamp": 1690869508463,
                         "plotCount": 2,
                         "name": "LuckUnstoppable7",
                         "online": false,
@@ -98,79 +100,55 @@
                         "statistics": {
                           "INTERACT_WITH_LOOM": 0,
                           "CAULDRON_USED": 8,
-                          "ANIMALS_BRED": 0,
                           "INTERACT_WITH_BLAST_FURNACE": 0,
                           "CRAFTING_TABLE_INTERACTION": 5,
                           "CAKE_SLICES_EATEN": 262,
-                          "DEATHS": 33,
-                          "JUMP": 263139,
+                          "JUMP": 263179,
                           "INTERACT_WITH_ANVIL": 17,
                           "BANNER_CLEANED": 0,
-                          "WALK_ON_WATER_ONE_CM": 415061,
+                          "WALK_ON_WATER_ONE_CM": 415493,
                           "INTERACT_WITH_STONECUTTER": 1,
-                          "BEACON_INTERACTION": 6,
-                          "SNEAK_TIME": 256746,
-                          "RAID_WIN": 0,
+                          "SNEAK_TIME": 257646,
                           "ENDERCHEST_OPENED": 4,
-                          "PLAY_ONE_MINUTE": 40791203,
+                          "PLAY_ONE_MINUTE": 40934390,
                           "NOTEBLOCK_TUNED": 268,
                           "SWIM_ONE_CM": 476005,
                           "INTERACT_WITH_LECTERN": 31,
                           "ARMOR_CLEANED": 0,
                           "FLOWER_POTTED": 3,
                           "DROPPER_INSPECTED": 33,
-                          "RAID_TRIGGER": 0,
-                          "CROUCH_ONE_CM": 436965,
+                          "CROUCH_ONE_CM": 437135,
                           "DISPENSER_INSPECTED": 129,
-                          "STRIDER_ONE_CM": 0,
-                          "DAMAGE_DEALT": 15,
                           "BELL_RING": 946,
                           "CLEAN_SHULKER_BOX": 0,
-                          "TIME_SINCE_DEATH": 4109890,
-                          "FLY_ONE_CM": 205850377,
-                          "DAMAGE_ABSORBED": 0,
+                          "FLY_ONE_CM": 206167165,
                           "AVIATE_ONE_CM": 520888,
                           "INTERACT_WITH_GRINDSTONE": 1,
-                          "TARGET_HIT": 0,
-                          "FISH_CAUGHT": 0,
-                          "TIME_SINCE_REST": 4109946,
-                          "DAMAGE_DEALT_RESISTED": 0,
-                          "DAMAGE_TAKEN": 86820,
-                          "LEAVE_GAME": 1158,
+                          "LEAVE_GAME": 1184,
                           "FALL_ONE_CM": 14593228,
                           "INTERACT_WITH_CARTOGRAPHY_TABLE": 1,
-                          "TOTAL_WORLD_TIME": 40791203,
-                          "WALK_UNDER_WATER_ONE_CM": 633925,
+                          "TOTAL_WORLD_TIME": 40934390,
+                          "WALK_UNDER_WATER_ONE_CM": 637089,
                           "MINECART_ONE_CM": 525331,
-                          "CLIMB_ONE_CM": 111230,
-                          "SPRINT_ONE_CM": 36689252,
+                          "CLIMB_ONE_CM": 111495,
+                          "SPRINT_ONE_CM": 36692816,
                           "DROP_COUNT": 842,
                           "INTERACT_WITH_SMITHING_TABLE": 0,
                           "CAULDRON_FILLED": 18,
                           "RECORD_PLAYED": 5,
-                          "MOB_KILLS": 4,
                           "HOPPER_INSPECTED": 27,
-                          "SLEEP_IN_BED": 2,
-                          "HORSE_ONE_CM": 0,
                           "SHULKER_BOX_OPENED": 48,
-                          "PIG_ONE_CM": 0,
                           "ITEM_ENCHANTED": 1,
                           "OPEN_BARREL": 33,
-                          "WALK_ONE_CM": 21677550,
+                          "WALK_ONE_CM": 21686402,
                           "NOTEBLOCK_PLAYED": 0,
-                          "TALKED_TO_VILLAGER": 0,
-                          "DAMAGE_DEALT_ABSORBED": 0,
-                          "TRADED_WITH_VILLAGER": 0,
                           "BREWINGSTAND_INTERACTION": 0,
                           "BOAT_ONE_CM": 78993,
-                          "DAMAGE_RESISTED": 0,
                           "INTERACT_WITH_SMOKER": 0,
                           "CHEST_OPENED": 398,
-                          "DAMAGE_BLOCKED_BY_SHIELD": 0,
                           "FURNACE_INTERACTION": 18,
                           "INTERACT_WITH_CAMPFIRE": 0,
-                          "TRAPPED_CHEST_TRIGGERED": 49,
-                          "PLAYER_KILLS": 0
+                          "TRAPPED_CHEST_TRIGGERED": 49
                         }
                       }
                     </pre>
@@ -186,7 +164,7 @@
                     <button class="toggle-btn" onclick="toggleResponse('response3')"><i class="fas fa-eye"></i> Show/Hide API Response</button>
                     <pre id="response3" style="display: none;">
                 {
-                    "apiVersion": "1.2"
+                    "apiVersion": "1.5"
                 }
                     </pre>
                 </div>
